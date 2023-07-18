@@ -19,7 +19,6 @@ const getStudentsData = async () => {
   data.map((st) => {
     studentCards.innerHTML += getStudentsCard(st, teacherName);
   });
-  teachers.map()
   getPagination();
 };
 getStudentsData();
