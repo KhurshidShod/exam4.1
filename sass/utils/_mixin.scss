@@ -1,0 +1,18 @@
+@use "variables" as var;
+@use "../base/typography";
+
+@mixin df($jc: center, $ai: center, $fd: row){
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-direction: $fd;
+}
+@mixin containerg{
+  display: flex;
+  flex-direction: column;
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px 20px;
+
+}

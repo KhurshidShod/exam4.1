@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --text-shadow: 1px 1px 2px rgba(255, 255, 255, 1), -1px -1px 1px rgba(0, 0, 0, .7);
+  --box-shadow: 3px 3px 5px #ccc, -3px -3px 5px #fff;
+  --box-shadow-inset: 3px 3px 5px #ccc inset, -3px -3px 5px #fff inset;
+  --box-shadow-card: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+    -4px -4px 6px 0 rgba(116, 125, 136, 0.5),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, 0.4);
+  --bg-color: #e6e6e6;
+  --border: 1px solid rgba(0, 0, 0, 0.2);
+  --color-green: rgb(0, 142, 0);
+}
+body {
+  background-color: var(--bg-color);
+}
+
+body.dark {
+  --color-green: rgb(161, 0, 0);
+  --text-shadow: 1px 1px 2px rgb(90, 90, 90), -1px -1px 2px rgb(0, 0, 0);
+  --bg-color: #191a1e;
+  --box-shadow: 1.5px 1.5px 3px #0e0e0e, -1.5px -1.5px 3px rgb(95 94 94 / 25%);
+  --box-shadow-card: 1.5px 1.5px 3px #0e0e0e, -1.5px -1.5px 3px rgb(95 94 94 / 25%);
+  --box-shadow-inset: 1.5px 1.5px 3px #0e0e0e inset,
+    -1.5px -1.5px 3px rgb(95 94 94 / 25%) inset;
+}
+
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

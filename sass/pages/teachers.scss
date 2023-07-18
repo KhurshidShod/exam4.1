@@ -1,0 +1,453 @@
+@use "../global";
+@use "../utils/mixin" as *;
+@use "../utils/variables" as *;
+
+.modalWrapper {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+  z-index: 99999;
+  @include df;
+  padding: 1rem;
+  display: none;
+  .addEditForm {
+    font-family: "Rubik";
+    min-width: 250px;
+    max-width: 750px;
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    box-shadow: var(--box-shadow-card);
+    @include df;
+    padding: 2rem;
+    padding-top: 5rem;
+    position: relative;
+    .closeModal {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      box-shadow: var(--box-shadow-card);
+      background-color: var(--bg-color);
+      border: none;
+      outline: none;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      box-shadow: 0 15px 25px -4px rgba(0, 0, 0, 0.5),
+        inset 0 -3px 4px -1px rgba(0, 0, 0, 0.2),
+        0 -10px 15px -1px rgba(255, 255, 255, 0.6),
+        inset 0 3px 4px -1px rgba(255, 255, 255, 0.2),
+        inset 0 0 5px 1px rgba(255, 255, 255, 0.8),
+        inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
+      &:hover .fa-xmark {
+        transform: rotate(180deg);
+        transition: 0.3s linear;
+      }
+      &:not(:hover) .fa-xmark {
+        transition: 0.3s linear;
+      }
+      .fa-xmark {
+        color: var(--color-green);
+        font-size: 24px;
+        cursor: pointer;
+      }
+    }
+    form {
+      @include df($jc: start);
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      div.isMarriedDiv {
+        @include df($jc: start);
+        gap: 15px;
+        width: 100%;
+      }
+      button {
+        width: 150px;
+        height: 50px;
+        background-color: var(--bg-color);
+        box-shadow: var(--box-shadow);
+        border-radius: 10px;
+        color: var(--color-green);
+        font-size: 18px;
+        font-weight: 500;
+        &:hover {
+          box-shadow: var(--box-shadow-inset);
+        }
+      }
+      input {
+        min-width: 200px;
+        width: calc((100% / 2) - 1rem);
+        height: 50px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        background-color: var(--bg-color);
+        box-shadow: var(--box-shadow-card);
+        padding-left: 1rem;
+        font-size: 18px;
+        color: var(--color-green);
+        flex-grow: 1;
+        &::placeholder {
+          color: var(--color-green);
+        }
+      }
+      input[type="checkbox"] {
+        width: auto;
+        box-shadow: none;
+      }
+      label {
+        color: green;
+        font-size: 18px;
+      }
+      .dropArea {
+        width: 100%;
+        height: 200px;
+        // border: 2px dashed;
+        @include df($fd: column);
+        font-size: 22px;
+        border-radius: 10px;
+        box-shadow: var(--box-shadow);
+        p {
+          max-width: 130px;
+          text-align: center;
+          span {
+            color: green;
+            cursor: pointer;
+          }
+          &:nth-child(4){
+            font-size: 16px;
+            color: var(--color-green);
+            max-width: 250px;
+            margin-bottom: 1rem;
+          }
+        }
+        input{
+          width: 90%;
+          height: 25px !important;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+.teachers {
+  width: 100%;
+  height: 100vh;
+  background: var(--bg-color);
+  font-family: "Rubik";
+  .teachers__wrapper {
+    width: 100%;
+    @include df($fd: column);
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+    &-form {
+      width: 100%;
+      @include df($jc: space-between);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      div {
+        min-width: 200px;
+        &:first-child {
+          input {
+            border: none;
+            width: 300px;
+            height: 50px;
+            background-color: var(--bg-color);
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+            padding: 0.5rem;
+            font-size: 20px;
+            font-weight: 300;
+            color: var(--color-green);
+            box-shadow: var(--box-shadow-card);
+            &::placeholder {
+              color: var(--color-green);
+            }
+            &:hover,
+            &:focus {
+              border: none;
+              outline: none;
+            }
+            body.dark &:hover,
+            body.dark &:focus {
+              border: none;
+              outline: none;
+              box-shadow: var(--box-shadow-inset);
+            }
+          }
+        }
+        &:last-child {
+          @include df;
+          gap: 0.5rem;
+          select {
+            background-color: var(--bg-color);
+            box-shadow: var(--box-shadow-card);
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            font-size: 18px;
+            color: var(--color-green);
+            &:hover,
+            &:focus {
+              border: none;
+              outline: none;
+            }
+            body.dark &:hover,
+            body.dark &:focus {
+              border: none;
+              outline: none;
+              box-shadow: var(--box-shadow-inset);
+            }
+          }
+          button {
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            font-weight: 900;
+            background-color: var(--bg-color);
+            border: none;
+            border-radius: 50%;
+            box-shadow: var(--box-shadow-card);
+            color: var(--color-green);
+            body.dark &:hover,
+            body.dark &:focus {
+              border: none;
+              outline: none;
+              box-shadow: var(--box-shadow-inset);
+            }
+            i {
+              transition: transform 0.3s linear;
+            }
+            &:hover {
+              i {
+                transform: rotate(180deg);
+              }
+            }
+          }
+        }
+      }
+    }
+    &-cards {
+      width: 100%;
+      @include df($jc: space-between);
+      flex-wrap: wrap;
+      gap: 2rem;
+      &-notFound {
+        @include df($jc: space-evenly, $ai: center);
+        height: 75vh;
+        width: 100%;
+        flex-wrap: wrap;
+        &-img {
+          width: 45%;
+          min-width: 250px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        &-text {
+          min-width: 250px;
+          h3 {
+            font-size: 24px;
+            letter-spacing: 3px;
+            color: var(--bg-color);
+            text-shadow: var(--text-shadow);
+          }
+          h1 {
+            font-size: 150px;
+            @media (max-width: 525px) {
+              font-size: 94px;
+            }
+            color: var(--bg-color);
+            font-weight: 900;
+            text-shadow: var(--text-shadow);
+          }
+          h5 {
+            color: var(--color-green);
+            font-size: 20px;
+            @media (max-width: 525px) {
+              font-size: 16px;
+            }
+          }
+          button {
+            width: 150px;
+            height: 35px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            background-color: var(--color-green);
+            box-shadow: var(--box-shadow);
+            color: var(--bg-color);
+            font-size: 18px;
+            margin-top: 2rem;
+          }
+        }
+      }
+      &-card {
+        margin-top: 7rem;
+        min-width: 250px;
+        flex-grow: 0.75;
+        @media (max-width: 570px) {
+          flex-grow: 1;
+        }
+        width: calc(100% / 4.5);
+        height: 375px;
+        background-color: var(--bg-color);
+        box-shadow: var(--box-shadow);
+        border-radius: 20px;
+        border-bottom-left-radius: 45%;
+        border-bottom-right-radius: 45%;
+        position: relative;
+        color: var(--color-green);
+        @include df($fd: column, $jc: end, $ai: center);
+        z-index: 0;
+        transition: color 0.3s linear;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background-color: var(--color-green);
+          z-index: 1;
+          border-radius: 20px;
+          z-index: -1;
+          clip-path: circle(8rem at 50% 112%);
+          border-bottom-left-radius: 45%;
+          border-bottom-right-radius: 45%;
+          transition: all 0.3s linear;
+        }
+        &:hover {
+          color: white !important;
+          .teachers__wrapper-cards-card-img {
+            img {
+              width: 100% !important;
+              height: 100% !important;
+            }
+          }
+        }
+        &:hover::before {
+          clip-path: circle(100%);
+        }
+        &-img {
+          width: 200px;
+          height: 200px;
+          background: var(--bg-color);
+          box-shadow: var(--box-shadow-inset);
+          border-radius: 50%;
+          overflow: hidden;
+          @include df;
+          position: absolute;
+          left: 50%;
+          top: 0%;
+          transform: translate(-50%, -50%);
+          img {
+            width: 75%;
+            height: 75%;
+            border-radius: 50%;
+            transition: all 0.3s linear;
+          }
+        }
+        &-text {
+          @include df($fd: column);
+          margin-bottom: -2rem;
+          gap: 1rem;
+          padding: 0.5rem;
+          div {
+            width: 100%;
+            @include df($fd: column);
+            gap: 1rem;
+          }
+          .buttons {
+            margin-bottom: -1rem;
+            .wrapper {
+              .edit {
+                color: #1877f2;
+              }
+              .students {
+                color: #1da1f2;
+              }
+              .delete {
+                color: red;
+              }
+            }
+          }
+          //   button {
+          //     margin-bottom: -2.5rem;
+          //     font-size: 16px;
+          //     font-weight: 500;
+          //     cursor: pointer;
+          //     // box-shadow: 0.4rem 0.4rem 1rem rgb(0, 118, 0), -0.4rem -0.4rem 1rem rgb(0, 214, 0);
+          //     width: 125px;
+          //     height: 50px;
+          //     border: none;
+          //     background-color: var(--bg-color);
+          //     border-radius: 5px;
+          //     border-bottom-left-radius: 50%;
+          //     border-bottom-right-radius: 50%;
+          //     border: 2px solid transparent;
+          //     &:hover {
+          //       background-color: transparent;
+          //       border-color: var(--bg-color);
+          //       color: white;
+          //     }
+          //   }
+        }
+      }
+    }
+    &-pagination {
+      @include df;
+      gap: 1rem;
+      margin-top: 3rem;
+      background-color: var(--bg-color);
+      box-shadow: var(--box-shadow);
+      border-radius: 5px;
+      padding: 0.8rem 1rem;
+      li {
+        float: left;
+        background-color: var(--bg-color);
+        box-shadow: var(--box-shadow);
+        padding: 0.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        &.disabled {
+          box-shadow: var(--box-shadow-inset);
+          &:hover {
+            box-shadow: var(--box-shadow-inset);
+          }
+        }
+        button {
+          color: var(--color-green);
+          background-color: transparent;
+          border: none;
+          outline: none;
+          width: 100%;
+          height: 100%;
+          font-size: 16px;
+        }
+        &:hover {
+          box-shadow: var(--box-shadow-inset);
+        }
+        &.page-link {
+          width: 35px;
+          height: 35px;
+          @include df;
+          &.active-link {
+            background-color: var(--color-green);
+            button {
+              color: var(--bg-color);
+            }
+          }
+        }
+      }
+    }
+  }
+}
